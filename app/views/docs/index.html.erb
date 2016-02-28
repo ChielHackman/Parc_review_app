@@ -1,0 +1,48 @@
+<h1>Parc API</h1>
+
+<p>This is a RESTful JSON API for parcs</p>
+
+<ul>
+  <li>
+    <%= link_to "#get-parcs" do %>
+      <code>GET /parcs</code>
+    <% end %>
+  </li>
+</ul>
+
+<h2 id="#get-parcs">GET /parcs</h2>
+
+<pre>
+{
+  meta: {
+    count: 4,
+    page: 0
+  },
+  todos: [
+    {
+      id: 1,
+      name: "De Eemhof",
+      description: "Eldorado vol avontuur en watersport, met een Mediterraans tintje.",
+      city: "Slingerweg 1 Zeewolde",
+    },
+    {
+      id: 2,
+      name: "Parc Zandvoort",
+      description: "Uitwaaien aan het Noordzeestrand of voor even toerist in de grote stad.",
+      city: "Vondellaan 60 Zandvoort",
+    },
+    {
+      id: 3,
+      name: "Het Meerdal",
+      description: "Het paradijs waar kinderdromen uitkomen.",
+      city: "Laagheideweg 11 America",
+    },
+    {
+      id: 4,
+      name: "Parc Sandur",
+      description: "Rust en ruimte aan een glinsterend meer.",
+      city: "Sandurdreef 5 Emmen",
+    }
+  ]
+}
+</pre>

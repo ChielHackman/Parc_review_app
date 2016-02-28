@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
+gem 'puma'
+gem 'rack-cors', require: 'rack/cors'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -50,4 +52,8 @@ group :development do
     gem 'rb-fsevent'
     gem 'terminal-notifier-guard'
   end
+
+group :production do
+  gem 'rails_12factor'
+end
 end
