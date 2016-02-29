@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ProjectsController, type: :controller do
+RSpec.describe ParcsController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do

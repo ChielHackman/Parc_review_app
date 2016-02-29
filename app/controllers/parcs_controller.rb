@@ -11,7 +11,14 @@ class ParcsController < ApplicationController
 
   def show
     parc = Parc.find(params[:id])
-    render json: { parc: parc }
+    render json: {
+    meta: {
+      count: Parc.count,
+      page: 0
+    },
+    parc: parc
+  }
+
   end
 
   private
