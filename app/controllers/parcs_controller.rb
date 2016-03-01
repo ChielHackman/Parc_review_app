@@ -6,7 +6,8 @@ class ParcsController < ApplicationController
         page: 0
       },
       parcs: Parc.order(:name, :description, :city)
-
+  end
+  
   def show
     parc = Parc.find(params[:id])
     render json: { parc: parc }
