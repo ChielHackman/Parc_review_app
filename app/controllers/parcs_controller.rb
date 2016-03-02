@@ -56,16 +56,6 @@ class ParcsController < ApplicationController
 
   private
 
-  def get_average
-    reviews = parc.reviews
-    if reviews.empty?
-      return 0
-    else
-      review_sum = reviews.inject(0) { |sum, review| sum += review.rating }
-      avg_rating = (review_sum.to_f / reviews.count).round
-    end
-  end
-
   def parc_params
     params.require(:parc).permit(:name, :description, :city)
   end
