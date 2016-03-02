@@ -5,13 +5,19 @@ class ParcsController < ApplicationController
         count: Parc.count,
         page: 0
       },
-      parcs: Parc.order(:name, :description, :city)
+      parcs: parc.as_json({:include => :reviews, :methods => :average_rating})
     }
   end
 
   def show
     parc = Parc.find(params[:id])
-    render json: { parc: parc }
+    average_rating = parc.average_rating
+    reviews = parc.reviews
+    render json: {
+      parc: parc,
+      average_rating: average_rating,
+      reviews: reviews
+     }
   end
 
   def create
@@ -51,6 +57,16 @@ class ParcsController < ApplicationController
   end
 
   private
+
+  def get_average
+    reviews = parc.reviews
+    if reviews.empty?
+      return 0
+    else
+      review_sum = reviews.inject(0) { |sum, review| sum += review.rating }
+      avg_rating = (review_sum.to_f / reviews.count).round
+    end
+  end
 
   def parc_params
     params.require(:parc).permit(:name, :description, :city)
