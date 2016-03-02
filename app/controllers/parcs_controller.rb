@@ -5,7 +5,7 @@ class ParcsController < ApplicationController
         count: Parc.count,
         page: 0
       },
-      parcs: parc.json({:include => :reviews, :methods => :average_rating})
+      parcs: Parc.order({:include => :reviews, :methods => :average_rating})
     }
   end
 
