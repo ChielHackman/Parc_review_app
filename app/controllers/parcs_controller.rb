@@ -1,11 +1,9 @@
 class ParcsController < ApplicationController
   def index
+    parcs = Parc.order(:name)
+
     render json: {
-      meta: {
-        count: Parc.count,
-        page: 0
-      },
-      parcs: Parc.order(:name)
+      parcs: parcs.as_json({:include => :reviews, :methods => :average_rating})
     }
   end
 
