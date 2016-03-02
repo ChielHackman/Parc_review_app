@@ -31,7 +31,7 @@ class ParcsController < ApplicationController
     if parc.update(parc_params)
       render json: { parc: parc }
     else
-      render json: {:overall_ratin
+      render json: {
         message: "Could not update parc",
         errors: parc.errors,
       }, status: :unprocessible_entity
