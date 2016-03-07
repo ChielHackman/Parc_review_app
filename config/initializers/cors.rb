@@ -3,7 +3,6 @@ class ParcReviewApp::Application
     allow do
       origins 'localhost:3000',
       'http://parcreviewapp.bitballoon.com/',
-      'http://www.chielhackman.nl'
 
       resource '/cors',
         headers: :any,
