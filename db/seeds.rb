@@ -9,6 +9,11 @@ parc1 = Parc.create({ name: "De Eemhof", description: "Eldorado vol avontuur en 
 parc2 = Parc.create({ name: "Parc Zandvoort", description: "Uitwaaien aan het Noordzeestrand of voor even toerist in de grote stad.", city: "Vondellaan 60 Zandvoort"})
 parc3 = Parc.create({ name: "Het Meerdal", description: "Het paradijs waar kinderdromen uitkomen.", city: "Laagheideweg 11 America"})
 parc4 = Parc.create({ name: "Parc Sandur", description: "Rust en ruimte aan een glinsterend meer.", city: "Sandurdreef 5 Emmen"})
+parc5 = Parc.create({ name: "Het Heijderbos", description: "De plek voor jungle-avonturen en spannende activiteiten.", city: "Hommersumseweg 43 Heijen"})
+parc6 = Parc.create({ name: "Port Zélande", description: "Aan het Grevelingenmeer en Noordzeestrand, een frisse duik in vele water- en strandsporten.", city: "Port Zélande 2 Ouddorp"})
+parc7 = Parc.create({ name: "De Huttenheugte", description: "Kinderspeelparadijs in de rustgevende omgeving van het grote meer.", city: "Reindersdijk 55 Dalen"})
+parc8 = Parc.create({ name: "De Kempervennen", description: "Volop in actie, zowel indoor als outdoor met de natuur als speeldomein.", city: "Kempervennendreef 8 Westerhoven"})
+parc9 = Parc.create({ name: "Limburgse Peel", description: "Eindeloos wandelen en fietsen in het Limburgse natuurschoon.", city: "Peelheideweg 25 America"})
 
 Review.create([
   { name: "Hans", comment: "Top park.", rating: 4 , parc: parc1 },
