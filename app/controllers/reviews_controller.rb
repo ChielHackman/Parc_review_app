@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :get_parc
+  before_action :find_parc
 
   def index
     render json: {
