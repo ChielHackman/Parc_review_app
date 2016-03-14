@@ -1,9 +1,18 @@
 class ParcsController < ApplicationController
   def index
-    parcs = Parc.order(:name)
+    parcs = Parc.all
+    nederland = get_country(parcs, "nederland")
+    belgië = get_country(parcs, "belgië")
+    duitsland = get_country(parcs, "duitsland")
 
     render json: {
-      parcs: parcs.as_json({:include => :reviews, :methods => :average_rating})
+      meta: {
+        count: Parc.count,
+        page: 0
+      },
+      nederland: nederland.as_json({:include => :reviews, :methods => :average_rating}),
+      belgië: belgië.as_json({:include => :reviews, :methods => :average_rating}),
+      duitsland: duitsland.as_json({:include => :reviews, :mothods => :average_rating})
     }
   end
 
@@ -18,45 +27,16 @@ class ParcsController < ApplicationController
      }
   end
 
-  def create
-    if parc = Parc.create(parc_params)
-      render json: { parc: parc }
-    else
-      render json: {
-        message: "Create parc failled",
-        errors: parc.errors,
-      }, status: :unprocessible_entity
-    end
-  end
-
-  def update
-    parc = Parc.find(params[:id])
-
-    if parc.update(parc_params)
-      render json: { parc: parc }
-    else
-      render json: {
-        message: "Could not update parc",
-        errors: parc.errors,
-      }, status: :unprocessible_entity
-    end
-  end
-
-  def destroy
-    parc = Parc.find(params[:id])
-
-    if parc.destroy
-      render json: { parc: nil }
-    else
-      render json: {
-        message: "Not able to delete parc, please try again",
-      }, status: :unprocessible_entity
-    end
-  end
-
   private
 
-  def parc_params
-    params.require(:parc).permit(:name, :description, :city)
+  def get_country(parcs, country)
+    array = []
+    parcs.each do |parc|
+      if parc.country == country
+        array << parc
+      end
+    end
+    return array
   end
+  
 end
