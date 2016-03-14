@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :find_parc
+  before_action :get_parc
 
   def index
     render json: {
@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def find_parc
+  def get_parc
     @parc = Parc.find(params[:parc_id])
   end
 
