@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def set_parc
+  def find_parc
     @parc = Parc.find(params[:parc_id])
   end
 
