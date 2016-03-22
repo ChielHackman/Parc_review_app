@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'docs#index'
-  resources :parcs, except: [:new, :edit] do
-    resources :reviews, except: [:new, :edit]
+  root 'parcs#index'
+
+  resources :parcs, except: [:show, :new, :edit] do
+    resources :reviews, except: [:show, :new, :edit]
   end
 end
